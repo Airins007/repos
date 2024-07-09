@@ -387,7 +387,7 @@ public class WorkflowDef extends Auditable {
             WorkflowTask nextTask = task.next(taskReferenceName, null);
             if (nextTask != null) {
                 return nextTask;
-            } else if (TaskType.DO_WHILE.name().equals(task.getType())
+            } else if (TaskType.isLoopTask(task.getType())
                     && !task.getTaskReferenceName().equals(taskReferenceName)
                     && task.has(taskReferenceName)) {
                 // If the task is child of Loop Task and at last position, return null.
